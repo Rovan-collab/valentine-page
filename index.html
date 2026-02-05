@@ -10,6 +10,7 @@
       background: pink;
       color: red;
       margin-top: 100px;
+      overflow: hidden;
     }
     button {
       font-size: 20px;
@@ -33,6 +34,22 @@
       font-weight: bold;
       margin-top: 40px;
       display: none;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .heart {
+      position: absolute;
+      color: red;
+      font-size: 24px;
+      animation: floatUp 4s linear forwards;
+    }
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-200px); opacity: 0; }
     }
   </style>
 </head>
@@ -41,7 +58,6 @@
   <button id="yes" onclick="showMessage()">Yes</button>
   <button id="no" onmouseover="moveButton()">No</button>
 
-  <!-- Corrected message -->
   <div id="message">🎉 Yay! I love you baby ❤️</div>
 
   <script>
@@ -52,7 +68,22 @@
     }
 
     function showMessage() {
-      document.getElementById('message').style.display = 'block';
+      const msg = document.getElementById('message');
+      msg.style.display = 'block';
+
+      // Create floating hearts
+      for (let i = 0; i < 10; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerHTML = '❤️';
+        heart.style.left = Math.random() * window.innerWidth + 'px';
+        heart.style.top = window.innerHeight + 'px';
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 4000);
+      }
     }
   </script>
 </body>
