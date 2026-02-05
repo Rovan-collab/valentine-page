@@ -28,12 +28,20 @@
       color: black;
       position: absolute;
     }
+    #message {
+      font-size: 28px;
+      font-weight: bold;
+      margin-top: 40px;
+      display: none;
+    }
   </style>
 </head>
 <body>
   <h1>💌 Tarash, will you be my Valentine? 💌</h1>
-  <button id="yes" onclick="redirectToGif()">Yes</button>
+  <button id="yes" onclick="showMessage()">Yes</button>
   <button id="no" onmouseover="moveButton()">No</button>
+
+  <div id="message">❤️ I love you baby ❤️</div>
 
   <script>
     function moveButton() {
@@ -42,9 +50,8 @@
       noBtn.style.left = Math.random() * window.innerWidth + 'px';
     }
 
-    function redirectToGif() {
-      // Working romantic "I love you" GIF
-      window.location.href = "https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif";
+    function showMessage() {
+      document.getElementById('message').style.display = 'block';
     }
   </script>
 </body>
