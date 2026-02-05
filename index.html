@@ -32,7 +32,7 @@
 </head>
 <body>
   <h1>💌 Tarash, will you be my Valentine? 💌</h1>
-  <button id="yes" onclick="alert('Yay! ❤️ I’m so happy!')">Yes</button>
+  <button id="yes" onclick="redirectToGif()">Yes</button>
   <button id="no" onmouseover="moveButton()">No</button>
 
   <script>
@@ -40,6 +40,11 @@
       const noBtn = document.getElementById('no');
       noBtn.style.top = Math.random() * window.innerHeight + 'px';
       noBtn.style.left = Math.random() * window.innerWidth + 'px';
+    }
+
+    function redirectToGif() {
+      // Replace the link below with your favorite Valentine GIF or image
+      window.location.href = "https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif";
     }
   </script>
 </body>
